@@ -1,20 +1,66 @@
 "use client";
 import Image from "next/image";
-import { FaUsers, FaLightbulb, FaShieldAlt, FaInfoCircle } from "react-icons/fa";
+import { FaUsers, FaLightbulb, FaShieldAlt, FaInfoCircle, FaBars, FaTimes } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+
+const HistoriaModal = dynamic(() => import("./components/HistoriaModal"), { ssr: false });
 
 export default function Home() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="bg-[#F8FAF9] min-h-screen flex flex-col font-sans">
       {/* Header */}
-      <header className="w-full bg-white shadow-md fixed top-0 left-0 z-50">
+      <header className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/70 backdrop-blur shadow-none" : "bg-white shadow-md"}`}>
         <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-2">
-          <div className="flex items-center gap-2">
-            <Image src="/inicial/logo.png" alt="FACTO Logo" width={160} height={50} className="object-contain" priority />
-            <div className="ml-2 text-xs text-[#1A3C34] font-semibold leading-tight">
-              
-            </div>
+          {/* Logo y urna */}
+          <div className="flex items-center gap-2 relative">
+            <Image
+              src="/inicial/logo.png"
+              alt="FACTOBO Logo"
+              width={260}
+              height={80}
+              className="object-contain z-10 hidden sm:block"
+              priority
+            />
+            <Image
+              src="/inicial/logo.png"
+              alt="FACTOBO Logo"
+              width={160}
+              height={50}
+              className="object-contain z-10 block sm:hidden"
+              priority
+            />
+            <Image
+              src="/inicial/Vote.svg"
+              alt="Urna de voto"
+              width={100}
+              height={100}
+              className="object-contain ml-[-15px] z-0 hidden sm:block"
+              style={{ marginTop: 0 }}
+            />
+            <Image
+              src="/inicial/Vote.svg"
+              alt="Urna de voto"
+              width={60}
+              height={60}
+              className="object-contain ml-[-10px] z-0 block sm:hidden"
+              style={{ marginTop: 0 }}
+            />
           </div>
+          {/* Menú desktop */}
           <nav className="hidden md:flex gap-8 text-[#1A3C34] font-semibold text-sm uppercase tracking-wide">
             <a href="#inicio" className="hover:text-[#1A8C6D]">Inicio</a>
             <a href="#acerca" className="hover:text-[#1A8C6D]">Acerca de</a>
@@ -22,10 +68,32 @@ export default function Home() {
             <a href="#actividades" className="hover:text-[#1A8C6D]">Actividades</a>
             <a href="#contacto" className="hover:text-[#1A8C6D]">Contacto</a>
           </nav>
-          <div>
-            <Image src="/inicial/pnud.png" alt="PNUD" width={48} height={48} className="object-contain" />
+          {/* Menú móvil hamburguesa */}
+          <button
+            className="md:hidden text-[#1A3C34] text-2xl p-2 focus:outline-none"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Abrir menú"
+          >
+            {menuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+          {/* Logo PNUD */}
+          <div className="hidden sm:block">
+            <Image src="/inicial/pnud.png" alt="PNUD" width={100} height={48} className="object-contain" />
+          </div>
+          <div className="block sm:hidden ml-2">
+            <Image src="/inicial/pnud.png" alt="PNUD" width={48} height={24} className="object-contain" />
           </div>
         </div>
+        {/* Menú móvil desplegable */}
+        {menuOpen && (
+          <div className="md:hidden absolute top-full left-0 w-full bg-white/95 shadow-lg z-50 animate-fade-in flex flex-col items-center py-4 gap-4 text-[#1A3C34] font-semibold text-base uppercase tracking-wide">
+            <a href="#inicio" className="hover:text-[#1A8C6D]" onClick={() => setMenuOpen(false)}>Inicio</a>
+            <a href="#acerca" className="hover:text-[#1A8C6D]" onClick={() => setMenuOpen(false)}>Acerca de</a>
+            <a href="#miembros" className="hover:text-[#1A8C6D]" onClick={() => setMenuOpen(false)}>Miembros</a>
+            <a href="#actividades" className="hover:text-[#1A8C6D]" onClick={() => setMenuOpen(false)}>Actividades</a>
+            <a href="#contacto" className="hover:text-[#1A8C6D]" onClick={() => setMenuOpen(false)}>Contacto</a>
+          </div>
+        )}
       </header>
 
       <main className="pt-24">
@@ -89,6 +157,14 @@ export default function Home() {
                   Enfrentar la desinformación y promover una participación democrática informada de cara a las <b>elecciones generales 2025</b>.
                 </div>
               </motion.div>
+            </div>
+            <div className="flex justify-center mt-4">
+              <button
+                onClick={() => setModalOpen(true)}
+                className="inline-block bg-[#1A8C6D] hover:bg-[#176b53] text-white font-semibold px-8 py-3 rounded transition text-lg shadow"
+              >
+                Conoce más detalles &rarr;
+              </button>
             </div>
           </div>
         </motion.section>
@@ -250,6 +326,8 @@ export default function Home() {
           </div>
         </motion.footer>
       </main>
+
+      <HistoriaModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 }
