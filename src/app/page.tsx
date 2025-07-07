@@ -208,7 +208,7 @@ export default function Home() {
             <div className="flex flex-col items-start md:col-span-1">
               <Image src="/inicial/logo-fotter.png" alt="FACTO Logo" width={220} height={60} className="object-contain mb-4" />
               <div className="text-lg font-normal mb-4">Coalición Nacional Contra la<br/>Desinformación Electoral</div>
-              <div className="italic text-base text-[#b6d6d6] mb-4">"Protegiendo la integridad de la información electoral en Bolivia"</div>
+              <div className="italic text-base text-[#b6d6d6] mb-4">&quot;Protegiendo la integridad de la información electoral en Bolivia&quot;</div>
             </div>
             {/* Enlaces rápidos */}
             <div className="md:col-span-1">
@@ -229,7 +229,7 @@ export default function Home() {
               </div>
               <div className="text-base mb-2">Programa de las Naciones Unidas para el Desarrollo (PNUD) Bolivia</div>
               <div className="font-bold text-lg mt-4 mb-1">Proyecto:</div>
-              <div className="text-base">"Cultura de Paz y Fortalecimiento del Órgano Electoral Plurinacional (OEP) de Bolivia"</div>
+              <div className="text-base">&quot;Cultura de Paz y Fortalecimiento del Órgano Electoral Plurinacional (OEP) de Bolivia&quot;</div>
             </div>
             {/* Redes sociales */}
             <div className="md:col-span-1">
