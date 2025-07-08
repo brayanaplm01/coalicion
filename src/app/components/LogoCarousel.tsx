@@ -55,13 +55,13 @@ const LogoCarousel: React.FC = () => {
   return (
     <div className="relative w-full overflow-hidden py-2" ref={containerRef}>
       <motion.div
-        className="flex gap-6"
+        className="flex gap-2 md:gap-6"
         style={{ minWidth: "100%" }}
         animate={controls}
       >
         {logosLoop.map((logo, i) => (
-          <div key={logo.alt + i} className="flex-shrink-0 bg-white rounded shadow w-56 h-28 flex items-center justify-center">
-            <Image src={logo.src} alt={logo.alt} width={220} height={100} className="object-contain w-52 h-24" />
+          <div key={logo.alt + i} className="flex-shrink-0 bg-white rounded shadow w-32 h-16 md:w-56 md:h-28 flex items-center justify-center">
+            <Image src={logo.src} alt={logo.alt} width={128} height={64} className="object-contain w-28 h-12 md:w-52 md:h-24" />
           </div>
         ))}
       </motion.div>

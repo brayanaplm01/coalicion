@@ -130,7 +130,7 @@ export default function Home() {
           animate={menuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
           transition={{ duration: 0.35, ease: 'easeOut' }}
           style={{ pointerEvents: menuOpen ? 'auto' : 'none' }}
-          className="md:hidden absolute top-full left-0 w-full bg-white/95 shadow-lg z-50 flex flex-col items-center py-4 gap-4 text-[#1A3C34] font-semibold text-base uppercase tracking-wide"
+          className="md:hidden absolute top-full left-0 w-full bg-white/95 shadow-lg z-50 flex flex-col items-center py-4 gap-6 px-4 text-[#1A3C34] font-semibold text-base uppercase tracking-wide"
         >
           {menuOpen && (
             <>
@@ -148,7 +148,7 @@ export default function Home() {
         {/* Hero Section */}
         <motion.section
           id="inicio"
-          className="bg-white min-h-screen flex flex-col md:flex-row items-center justify-center relative pt-4 md:pt-0 pb-44 md:pb-0"
+          className="bg-white min-h-screen flex flex-col md:flex-row items-center justify-center relative pt-20 md:pt-32 pb-32 md:pb-32"
           style={{ minHeight: '87vh' }}
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -197,7 +197,7 @@ export default function Home() {
             <div className="flex justify-center my-8">
               <div className="relative w-full flex justify-center">
                 <Image src="/inicial/coalicion.png" alt="Grupo FACTO" width={1400} height={500} className="rounded-2xl shadow-lg object-cover w-[1200px] max-w-full h-auto" />
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 text-black px-12 py-2 rounded-lg shadow text-lg font-semibold max-w-none text-center whitespace-nowrap">
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-white/90 text-black px-2 sm:px-8 py-2 rounded-lg shadow text-sm sm:text-lg font-semibold max-w-[95vw] w-[95%] text-center break-words">
                   Coalición Nacional Contra la Desinformación Electoral
                 </div>
               </div>
