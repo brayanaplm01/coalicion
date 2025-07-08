@@ -139,8 +139,11 @@ const CronologiaModal: React.FC<CronologiaModalProps> = ({ open, onClose }) => {
     };
     handleScroll();
     const el = containerRef.current;
-    el.addEventListener("scroll", handleScroll);
-    return () => el.removeEventListener("scroll", handleScroll);
+    if (el) {
+      el.addEventListener("scroll", handleScroll);
+      return () => el.removeEventListener("scroll", handleScroll);
+    }
+    return;
   }, [open]);
 
   useEffect(() => {
