@@ -148,7 +148,7 @@ export default function Home() {
         {/* Hero Section */}
         <motion.section
           id="inicio"
-          className="bg-white min-h-screen flex flex-col md:flex-row items-center justify-center relative pt-20 md:pt-32 pb-32 md:pb-32"
+          className="bg-white min-h-screen flex flex-col md:flex-row items-center justify-center relative pt-20 md:pt-28 pb-20 md:pb-28"
           style={{ minHeight: '87vh' }}
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
