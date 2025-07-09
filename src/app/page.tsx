@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { FaUsers, FaLightbulb, FaShieldAlt, FaInfoCircle, FaBars, FaTimes, FaTwitter, FaFacebookF, FaInstagram, FaYoutube, FaRegNewspaper } from "react-icons/fa";
+import { FaUsers, FaLightbulb, FaShieldAlt, FaInfoCircle, FaBars, FaTimes } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import dynamic from "next/dynamic";
@@ -68,36 +68,20 @@ export default function Home() {
           {/* Logo y urna */}
           <div className="flex items-center gap-2 relative">
             <Image
-              src="/inicial/logo.png"
+              src="/nuevos/logo-sello2.png"
               alt="FACTOBO Logo"
-              width={260}
+              width={140}
               height={80}
               className="object-contain z-10 hidden sm:block"
               priority
             />
             <Image
-              src="/inicial/logo.png"
+              src="/nuevos/logo-sello2.png"
               alt="FACTOBO Logo"
-              width={160}
-              height={50}
+              width={100}
+              height={40}
               className="object-contain z-10 block sm:hidden"
               priority
-            />
-            <Image
-              src="/inicial/Vote.svg"
-              alt="Urna de voto"
-              width={100}
-              height={100}
-              className="object-contain ml-[-15px] z-0 hidden sm:block"
-              style={{ marginTop: 0 }}
-            />
-            <Image
-              src="/inicial/Vote.svg"
-              alt="Urna de voto"
-              width={60}
-              height={60}
-              className="object-contain ml-[-10px] z-0 block sm:hidden"
-              style={{ marginTop: 0 }}
             />
           </div>
           {/* Menú desktop */}
@@ -158,7 +142,7 @@ export default function Home() {
           <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-center gap-8 px-4 md:pb-[60px]">
             {/* Imagen decorativa arriba a la derecha */}
             <div className="absolute top-2 right-2 pointer-events-none select-none z-0 block md:hidden">
-              <Image src="/inicial/unidad.png" alt="Manos Unidas decorativo" width={160} height={160} className="opacity-20 w-32 h-32" />
+              <Image src="/nuevos/inicial_nuevo.png" alt="Manos Unidas decorativo" width={300} height={200} className="opacity-20 w-32 h-32" />
             </div>
             <div className="flex-1 flex flex-col justify-center order-2 md:order-1">
               <h1 className="text-4xl md:text-5xl font-light text-[#1A3C34] mb-4 leading-tight">
@@ -172,7 +156,7 @@ export default function Home() {
               </p>
             </div>
             <div className="flex-1 hidden md:flex justify-center items-center md:items-start mt-[-40px] md:mt-[-80px] order-2">
-              <Image src="/inicial/unidad.png" alt="Manos Unidas" width={340} height={260} className="object-contain" />
+              <Image src="/nuevos/inicial_nuevo.png" alt="Manos Unidas" width={340} height={260} className="object-contain" />
             </div>
           </div>
           {/* Carrusel de logos como franja inferior */}
@@ -376,23 +360,27 @@ export default function Home() {
 
         {/* Footer */}
         <motion.footer
-          className="bg-[#07343B] text-white pt-12 pb-4 mt-12"
+          className="bg-[#03363D] text-white pt-12 pb-4 mt-12 border-t border-white/10"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 px-8">
-            {/* Logo y descripción */}
-            <div className="flex flex-col items-start md:col-span-1">
-              <Image src="/inicial/logo-fotter.png" alt="FACTO Logo" width={220} height={60} className="object-contain mb-4" />
-              <div className="text-lg font-normal mb-4">Coalición Nacional Contra la<br/>Desinformación Electoral</div>
-              <div className="italic text-base text-[#b6d6d6] mb-4">&quot;Protegiendo la integridad de la información electoral en Bolivia&quot;</div>
+          <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+            {/* Columna 1: Logo y nombre */}
+            <div>
+              <Image src="/inicial/logo-fotter.png" alt="FactoBo Logo" width={180} height={60} className="object-contain mb-4" />
+              <div className="font-bold text-lg mb-2">
+                Coalición Nacional Contra la Desinformación Electoral
+              </div>
+              <div className="italic text-white/80 text-base">
+                &quot;Protegiendo la integridad de la información electoral en Bolivia&quot;
+              </div>
             </div>
-            {/* Enlaces rápidos */}
-            <div className="md:col-span-1">
-              <div className="font-bold text-lg mb-2 border-b border-[#3a5c5c] pb-1">Enlaces Rápidos</div>
-              <ul className="space-y-2 mt-2 text-base">
+            {/* Columna 2: Enlaces rápidos */}
+            <div>
+              <div className="font-bold text-lg mb-2 border-b border-white/20 pb-1">Enlaces Rápidos</div>
+              <ul className="space-y-2 mt-2">
                 <li><a href="#inicio" className="hover:underline">Inicio</a></li>
                 <li><a href="#acerca" className="hover:underline">Acerca de</a></li>
                 <li><a href="#miembros" className="hover:underline">Miembros</a></li>
@@ -400,40 +388,22 @@ export default function Home() {
                 <li><a href="#contacto" className="hover:underline">Contacto</a></li>
               </ul>
             </div>
-            {/* Coordinación y proyecto */}
-            <div className="md:col-span-1 flex flex-col gap-2">
+            {/* Columna 3: Coordinación y proyecto */}
+            <div>
               <div className="flex items-center gap-3 mb-2">
-                <Image src="/inicial/pnud.png" alt="PNUD" width={100} height={48} className="object-contain" />
+                <Image src="/inicial/pnud.png" alt="PNUD" width={60} height={60} className="object-contain" />
                 <span className="font-bold text-lg">Coordinación:</span>
               </div>
-              <div className="text-base mb-2">Programa de las Naciones Unidas para el Desarrollo (PNUD) Bolivia</div>
-              <div className="font-bold text-lg mt-4 mb-1">Proyecto:</div>
-              <div className="text-base">&quot;Cultura de Paz y Fortalecimiento del Órgano Electoral Plurinacional (OEP) de Bolivia&quot;</div>
-            </div>
-            {/* Redes sociales */}
-            <div className="md:col-span-1">
-              <div className="font-bold text-lg mb-2 border-b border-[#3a5c5c] pb-1">Síguenos</div>
-              <div className="flex gap-5 mt-4">
-                <a href="#" className="group bg-white/10 hover:bg-[#1A8C6D] rounded-full w-14 h-14 flex items-center justify-center transition-all duration-200 shadow-lg border border-white/20">
-                  <FaTwitter className="text-white w-7 h-7 group-hover:scale-110 transition-transform duration-200" />
-                </a>
-                <a href="#" className="group bg-white/10 hover:bg-[#1A8C6D] rounded-full w-14 h-14 flex items-center justify-center transition-all duration-200 shadow-lg border border-white/20">
-                  <FaFacebookF className="text-white w-7 h-7 group-hover:scale-110 transition-transform duration-200" />
-                </a>
-                <a href="#" className="group bg-white/10 hover:bg-[#1A8C6D] rounded-full w-14 h-14 flex items-center justify-center transition-all duration-200 shadow-lg border border-white/20">
-                  <FaInstagram className="text-white w-7 h-7 group-hover:scale-110 transition-transform duration-200" />
-                </a>
-                <a href="#" className="group bg-white/10 hover:bg-[#1A8C6D] rounded-full w-14 h-14 flex items-center justify-center transition-all duration-200 shadow-lg border border-white/20">
-                  <FaYoutube className="text-white w-7 h-7 group-hover:scale-110 transition-transform duration-200" />
-                </a>
-                <a href="#" className="group bg-white/10 hover:bg-[#1A8C6D] rounded-full w-14 h-14 flex items-center justify-center transition-all duration-200 shadow-lg border border-white/20">
-                  <FaRegNewspaper className="text-white w-7 h-7 group-hover:scale-110 transition-transform duration-200" />
-                </a>
+              <div className="text-white/90 mb-4">
+                Programa de las Naciones Unidas para el Desarrollo (PNUD) Bolivia
+              </div>
+              <div className="font-bold text-lg mb-1">Proyecto:</div>
+              <div className="text-white/90">
+                &quot;Cultura de Paz y Fortalecimiento del Órgano Electoral Plurinacional (OEP) de Bolivia&quot;
               </div>
             </div>
           </div>
-          <hr className="my-8 border-[#3a5c5c]" />
-          <div className="text-center text-base text-[#b6d6d6]">
+          <div className="mt-8 border-t border-white/10 pt-4 text-center text-white/70 text-base">
             © 2025 FactoBo - Coalición Nacional Contra la Desinformación Electoral. Todos los derechos reservados.<br />
             Desarrollado con el apoyo del PNUD Bolivia
           </div>

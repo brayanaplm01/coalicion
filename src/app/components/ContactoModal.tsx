@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { FaTimes, FaShieldAlt, FaGlobe, FaRegNewspaper, FaUser, FaEnvelope, FaTwitter, FaFacebookF, FaInstagram, FaYoutube, FaLinkedin } from "react-icons/fa";
+import { FaTimes, FaShieldAlt, FaGlobe, FaRegNewspaper, FaUser, FaEnvelope } from "react-icons/fa";
 
 interface ContactoModalProps {
   open: boolean;
@@ -66,11 +66,6 @@ export default function ContactoModal({ open, onClose }: ContactoModalProps) {
               <div className="text-lg font-bold mb-2 text-[#1A3C34]">Contáctanos</div>
               <div className="flex items-center gap-2 mb-4 text-[#1A3C34] text-base font-semibold"><FaEnvelope className="text-[#1A8C6D]" /> contacto@facto.bo</div>
               <div className="flex gap-4 text-2xl text-[#1A3C34]">
-                <a href="#" className="hover:text-[#1A8C6D] transition"><FaTwitter /></a>
-                <a href="#" className="hover:text-[#1A8C6D] transition"><FaFacebookF /></a>
-                <a href="#" className="hover:text-[#1A8C6D] transition"><FaInstagram /></a>
-                <a href="#" className="hover:text-[#1A8C6D] transition"><FaYoutube /></a>
-                <a href="#" className="hover:text-[#1A8C6D] transition"><FaLinkedin /></a>
               </div>
             </div>
           </motion.div>
