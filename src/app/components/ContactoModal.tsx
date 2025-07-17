@@ -27,7 +27,7 @@ export default function ContactoModal({ open, onClose }: ContactoModalProps) {
           >
             {/* Header sticky */}
             <div className="sticky top-0 bg-white z-10 flex items-center justify-between pb-2 mb-4 border-b">
-              <h2 className="text-2xl md:text-3xl font-bold text-center w-full font-bold text-[#1A3C34] text-base">¿<span className="font-extrabold">Cómo Contactarnos?</span>?</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-center w-full text-[#1A3C34]">¿<span className="font-extrabold">Cómo Contactarnos?</span>?</h2>
               <button onClick={onClose} className="absolute right-2 top-2 text-2xl text-gray-400 hover:text-[#1A8C6D] transition"><FaTimes /></button>
             </div>
             <div className="border-b-2 border-[#1A8C6D] w-40 mx-auto mb-6" />
